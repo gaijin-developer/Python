@@ -2,7 +2,7 @@
 
 todos = []
 while True:
-    user_input = input("Enter add, show or edit : \n")
+    user_input = input("Enter add, show, edit or complete : \n")
 
     match user_input:
         case 'add':
@@ -15,8 +15,12 @@ while True:
                 print(f'no todos available - {number_of_todos}')
             else:
                 for i, todo in enumerate(todos):
-                    o_todo = f"{i}.{todo}"
+                    o_todo = f"{i +1}.{todo}"
                     print(o_todo)
+        case 'complete':
+            number = input("Enter input number of todo to complete: \n ")
+            number = int(number) - 1
+            todos.pop(number)
         case 'edit':
             print(todos)
         case 'end' | 'exit':
